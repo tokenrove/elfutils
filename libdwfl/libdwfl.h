@@ -807,6 +807,11 @@ int dwfl_getthread_frames (Dwfl *dwfl, pid_t tid,
 bool dwfl_frame_pc (Dwfl_Frame *state, Dwarf_Addr *pc, bool *isactivation)
   __nonnull_attribute__ (1, 2);
 
+/* Fetch value from Dwfl_Frame->regs indexed by DWARF REGNO.  If the
+   function returns FALSE, dwfl_errno () will be set.  */
+bool dwfl_frame_reg_get (Dwfl_Frame *state, unsigned regno, Dwarf_Addr *val)
+  __nonnull_attribute__ (1);
+
 #ifdef __cplusplus
 }
 #endif

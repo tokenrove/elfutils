@@ -93,6 +93,11 @@ state_get_reg (Dwfl_Frame *state, unsigned regno, Dwarf_Addr *val)
   return true;
 }
 
+bool dwfl_frame_reg_get (Dwfl_Frame *state, unsigned regno, Dwarf_Addr *val)
+{
+  return state_get_reg (state, regno, val);
+}
+
 static int
 bra_compar (const void *key_voidp, const void *elem_voidp)
 {
